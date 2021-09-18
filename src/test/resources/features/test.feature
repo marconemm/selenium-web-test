@@ -1,7 +1,7 @@
 #language: pt
-#encoding: UTF-8
+#encoding: utf-8
 
-Funcionalidade: Acessar Sistema
+Funcionalidade: Access System
 
-Cenario: Acessar o Sistema
-Dado Acessando o sistema
+Cenario: Acess the System
+Dado Acessing the System
