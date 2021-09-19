@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class Utils {
 	
@@ -16,10 +17,14 @@ public class Utils {
 		
 		driver.manage().window().maximize();
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/");		
 		
+	}
+	
+	public static <T> T at(Class<T> curClass){
+	    return PageFactory.initElements(driver, curClass);
 	}
 
 }

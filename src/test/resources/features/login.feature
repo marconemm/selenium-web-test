@@ -15,4 +15,4 @@ Feature: Login
 	And inform the password "admin123"
 	And click on the login button
 	Then the system changes to the dashborad page
-	And welcomes the user "Paul"
+	Then welcomes the user "Paul"

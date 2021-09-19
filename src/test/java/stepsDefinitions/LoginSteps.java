@@ -5,21 +5,22 @@ import static org.junit.Assert.assertTrue;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.lu.a;
 import pageObject.DashBoardPage;
 import pageObject.LoginPage;
+import utils.Utils;
 
 public class LoginSteps {
 
-    final LoginPage loginPage = new LoginPage();
-    final DashBoardPage dashBoardPage = new DashBoardPage();
+    final LoginPage loginPage = Utils.at(LoginPage.class);
+    final DashBoardPage dashBoardPage = Utils.at(DashBoardPage.class);
 
     @When("I inform the user {string}")
     public void iInformTheUser(String username) {
 	loginPage.informUsername(username);
+
     }
 
-    @When("inform the password {string}")
+    @And("inform the password {string}")
     public void informThePassword(String password) {
 	loginPage.informPassword(password);
     }
@@ -36,19 +37,18 @@ public class LoginSteps {
 	assertTrue(result);
     }
 
-    @Then("the sistem log into dashboad")
-    public void theSistemLogIntoDashboad() {
-
-    }
-
     @Then("the system changes to the dashborad page")
     public void theSystemChangesToTheDashboradPage() {
-	assertTrue(dashBoardPage.getCurrentUrl().contains("/dashboard"));
+	boolean result = dashBoardPage.getCurrentUrl().contains("/dashboard");
+
+	assertTrue(result);
     }
 
     @Then("welcomes the user {string}")
     public void welcomesTheUser(String userFirstName) {
-	assertTrue(dashBoardPage.checksWelcomeLink(userFirstName));
+	boolean result = dashBoardPage.checksWelcomeLink(userFirstName);
+
+	assertTrue(result);
     }
 
 }
