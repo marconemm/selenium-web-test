@@ -9,7 +9,7 @@ public class Utils {
 	
 	public static WebDriver driver;
 	
-	public static void accesSystem() {
+	public static void accessSystem() {
 		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
 		
 		driver = new ChromeDriver();
@@ -18,7 +18,8 @@ public class Utils {
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		driver.get("https://opensource-demo.orangehrmlive.com/");
+		driver.get("https://opensource-demo.orangehrmlive.com/");		
+		
 	}
 
 }
