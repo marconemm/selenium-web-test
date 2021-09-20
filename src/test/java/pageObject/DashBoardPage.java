@@ -12,9 +12,6 @@ public class DashBoardPage extends BasicLoggedInPage {
 
     final private WebDriver driver = Utils.driver;
 
-    @FindBy(id = "menu_admin_viewAdminModule")
-    private WebElement adminLinkEl;
-
     @FindBy(name = "btnAdd")
     private WebElement btnAddEl;
 
@@ -64,11 +61,7 @@ public class DashBoardPage extends BasicLoggedInPage {
     public void deleteUser() {
 	final WebElement bntOkEl = driver.findElement(By.id("dialogDeleteBtn"));
 	bntOkEl.click();
-    }
-
-    public void selectAdminPanel() {
-	adminLinkEl.click();
-    }
+    }   
 
     public void clickOnAddBtn() {
 	btnAddEl.click();
