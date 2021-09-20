@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		plugin = {"pretty"}, // shows the runtime test log.
+		plugin = {"pretty", "html:target/cucumber-reports/reoports.html"}, // shows the runtime test log.		
 		features = "src/test/resources/features",
 		glue = "stepsDefinitions",
 		snippets = SnippetType.CAMELCASE, //activate the "CamelCase" onto snippet.
