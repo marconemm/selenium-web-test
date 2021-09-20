@@ -6,9 +6,18 @@ import utils.Utils;
 
 public class Hooks {
 
-    @Before
+    @Before(value = "@login")
     public void setUp() {
-	Utils.accessSystem();
+	Utils.openTheSystem();
+
+    }
+
+    @Before(value = "@registerUser")
+    public void makeSingIn() {
+	Utils.openTheSystem();
+	LoginSteps loginSteps = new LoginSteps();
+
+	loginSteps.makeSingIn("Admin", "admin123", "Welcome");
 
     }
 

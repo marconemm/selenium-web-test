@@ -3,6 +3,7 @@ package stepsDefinitions;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.DashBoardPage;
@@ -30,8 +31,8 @@ public class LoginSteps {
 	loginPage.clickOnLoginButton();
     }
 
-    @Then("the sistem shows the invalid credentials user message")
-    public void theSistemShowsTheInvalidCredentialsUserMessage() {
+    @Then("the system shows the invalid credentials user message")
+    public void theSystemShowsTheInvalidCredentialsUserMessage() {
 	boolean result = loginPage.checksSpanMessage();
 
 	assertTrue(result);
@@ -45,10 +46,19 @@ public class LoginSteps {
     }
 
     @Then("welcomes the user {string}")
-    public void welcomesTheUser(String userFirstName) {
-	boolean result = dashBoardPage.checksWelcomeLink(userFirstName);
+    public void welcomesTheUser(String greeting) {
+	boolean result = dashBoardPage.checksWelcomeLink(greeting);
 
 	assertTrue(result);
+    }
+    
+    @Given("make sing-in")
+    public void makeSingIn(String username, String password, String greeting) {
+	loginPage.informUsername(username);
+	loginPage.informPassword(password);
+	loginPage.clickOnLoginButton();
+	theSystemChangesToTheDashboradPage();
+	welcomesTheUser(greeting);
     }
 
 }
